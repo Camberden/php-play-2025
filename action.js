@@ -15,6 +15,6 @@ function runStyling() {
 	li.append("...");
 });
 }
-window.setInterval(() => {
+window.onload = function() {
 	runStyling();
-}, 1000);;
+}

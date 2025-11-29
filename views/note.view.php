@@ -5,14 +5,16 @@
 
 	<?php require "partials/head.php"; ?>
 
-
 	<?php require "partials/nav.php"; ?>
 
 	<?php require "partials/banner.php"; ?>
 
 		<main>
 			<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-				<p>Welcome to the contact page, silly peep.</p>
+				<p>The selected <i>Note Title</i> is below:</p><hr>
+				
+				<p style="color:magenta;"><?= $note["body"]; ?></p><hr>
+				<p><a href="/notes" class="text-blue-500 hover:underline">Return...</a></p>
 			</div>
 		</main>
 
