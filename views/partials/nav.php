@@ -8,9 +8,12 @@
 						<div class="hidden md:block">
 							<div class="ml-10 flex items-baseline space-x-4">
 								<!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-								<a href="/" aria-current="page" class="block rounded-md px-3 py-2 text-base font-medium text-white">Home</a>
-								<a href="/about.php" class="block rounded-md bg-gray-950/50 px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">About</a>
-								<a href="/contact.php" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact</a>
+								<a href="/" aria-current="page" class="<?= urlIs("/") ? "bg-gray-900 text-white" : "text-gray-300"?>
+								block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-white/5 hover:text-white">Home</a>
+								<a href="/about.php" class="<?= urlIs("/about.php") ? "bg-gray-900 text-white" : "text-gray-300" ?>
+								block rounded-md px-3 py-2 text-base text-gray-300 font-medium hover:bg-white/5 hover:text-white">About</a>
+								<a href="/contact.php" class="<?= urlIs("/contact.php") ? "bg-gray-900 text-white" : "text-gray-300" ?>
+								block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact</a>
 
 							</div>
 						</div>
@@ -60,9 +63,12 @@
 			<el-disclosure id="mobile-menu" hidden class="block md:hidden">
 				<div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
 					<!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-					<a href="/" aria-current="page" class="block rounded-md bg-gray-950/50 px-3 py-2 text-base font-medium text-white">Home</a>
-					<a href="/about" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">About</a>
-					<a href="/contact" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact</a>
+								<a href="/" aria-current="page" class="<?= urlIs("/") ? "bg-gray-900 text-white" : "text-gray-300"?>
+								block rounded-md px-3 py-2 text-base font-medium text-white">Home</a>
+								<a href="/about.php" class="<?= urlIs("/about.php") ? "bg-gray-900 text-white" : "text-gray-300" ?>
+								block rounded-md bg-gray-950/50 px-3 py-2 text-base text-gray-300 font-medium hover:bg-white/5 hover:text-white">About</a>
+								<a href="/contact.php" class="<?= urlIs("/contact.php") ? "bg-gray-900 text-white" : "text-gray-300" ?>
+								block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact</a>
 				</div>
 				<div class="border-t border-white/10 pt-4 pb-3">
 					<div class="flex items-center px-5">
