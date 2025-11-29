@@ -8,8 +8,13 @@
  */
 const latestUpdate = "November 29th, 2025";
 document.querySelector("#latest-update").innerHTML = latestUpdate;
-document.querySelectorAll("li").forEach(li => {
+function runStyling() {
+	document.querySelectorAll("li").forEach(li => {
 	li.style.color = "white";
 	li.style.display = "inline";
 	li.append("...");
 });
+}
+window.setInterval(() => {
+	runStyling();
+}, 1000);;
