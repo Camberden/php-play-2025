@@ -11,9 +11,6 @@ function dumpAndDie($value) {
 	die();
 }
 
-// echo $_SERVER["REQUEST_URI"];
-// dumpAndDie($heading);
-
 function urlIs($value) {
 	return $_SERVER["REQUEST_URI"] === $value;
 }
