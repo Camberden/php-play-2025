@@ -1,8 +1,5 @@
 <?php
 
-$lastUpdated = "November 29th, 2025";
-$currentDate = date("FdY");
-
 function dumpAndDie($value) {
 	echo "<pre>";
 	var_dump($value);
@@ -14,5 +11,3 @@ function dumpAndDie($value) {
 function urlIs($value) {
 	return $_SERVER["REQUEST_URI"] === $value;
 }
-
-?>

@@ -1,5 +1,4 @@
 <?php
-
 $heading = "About Us";
 
 // require "action.php";
