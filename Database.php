@@ -3,6 +3,7 @@
 class Database {
 
 	public $connection;
+	public $statement;
 	public function __construct($config, $username = "root", $password = "") { 
 		// Called on initialization!
 		// $dsn = `mysql:host={$config["host"]};port={$config["port"]};dbname={$config["dbname"]};charset={$config["charset"]}`;
@@ -20,12 +21,30 @@ class Database {
 	
 	public function query($query, $params = []) { //specifies type array
 
-		$statement = $this->connection->prepare($query);
+		$this->statement = $this->connection->prepare($query); 
 
-		$statement->execute($params);
+		$this->statement->execute($params); //updated to $this->
 
 		// $posts = $statement->fetchAll();
 		// return $statement->fetchAll(PDO::FETCH_ASSOC); Removes duplication!
-		return $statement;
+		// return $statement;
+		return $this;
+	}
+
+	public function get() {
+		return $this->statement->fetchAll();
+	}
+
+	public function find() {
+		return $this->statement->fetch();
+	}
+
+	public function findOrFail() {
+		$result = $this->find();
+
+		if (! $result) {
+			abort();
+		}
+		return $result;
 	}
 }

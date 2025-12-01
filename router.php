@@ -1,20 +1,20 @@
 <?php
 
 // require "action.php";
+$routes = require "routes.php";
 
 // dumpAndDie($_SERVER);
 // $uri = $_SERVER["REQUEST_URI"];
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];
 // dumpAndDie(parse_url($uri));
 
-$routes = [
-	"/" => "controllers/index.php",
-	"/about" => "controllers/about.php",
-	"/notes" => "controllers/notes.php",
-	"/note" => "controllers/note.php",
-	"/contact" => "controllers/contact.php",
-	
-];
+// $routes = [
+// 	"/" => "controllers/index.php",
+// 	"/about" => "controllers/about.php",
+// 	"/notes" => "controllers/notes.php",
+// 	"/note" => "controllers/note.php",
+// 	"/contact" => "controllers/contact.php",
+// ];
 
 function routeToController($uri, $routes) {
 
