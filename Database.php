@@ -18,11 +18,11 @@ class Database {
 		return $statement;
 	}
 	
-	public function query($query, $params = []) {
+	public function query($query, $params = []) { //specifies type array
 
 		$statement = $this->connection->prepare($query);
 
-		$statement->execute([$params]);
+		$statement->execute($params);
 
 		// $posts = $statement->fetchAll();
 		// return $statement->fetchAll(PDO::FETCH_ASSOC); Removes duplication!
