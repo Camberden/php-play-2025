@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 	$errors = [];
 
-	if (Validator::string($_POST["body"], 1, 999)) {
+	if (! Validator::string($_POST["body"], 1, 999)) {
 		$errors["body"] = "A body of no more than 999 characters is required y'know.";
 	}
 
