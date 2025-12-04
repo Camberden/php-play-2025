@@ -1,5 +1,9 @@
 <?php
 
+// echo("Hello there"); 
+//security concern: can search resources by folder in browser.
+// die();
+
 // require "action.php";
 $routes = require "routes.php";
 

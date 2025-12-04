@@ -1,4 +1,3 @@
-<!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
 <!DOCTYPE html>
 
 <html class="h-full bg-gray-900">

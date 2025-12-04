@@ -1,7 +1,7 @@
 <?php
 
-$config = require("config.php");
-$validator = require("Validator.php");
+$config = require base_path("config.php");
+$validator = require base_path("Validator.php");
 $db = new Database($config["database"]);
 
 $heading = "Create Note!";
@@ -22,10 +22,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 		"user_id" => 1,
 	]);
 	}
+
+	view("notes/create.view.php", [
+	"heading" => "Error in note creation.",
+	"errors" => $errors,
+]);
 }
 
-
-
-require "views/notes/create.view.php";
+	view("notes/create.view.php", [
+	"heading" => "Create Note!",
+	// "errors" => $errors,
+]);
 
 ?>

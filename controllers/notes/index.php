@@ -1,9 +1,9 @@
 <?php
 
-$config = require("config.php");
+$config = require base_path("config.php");
 $db = new Database($config["database"]);
 
-$heading = "Note Dump";
+// $heading = "Note Dump";
 $id = [100];
 
 
@@ -11,4 +11,7 @@ $query = "SELECT * FROM notes WHERE id < ?";
 $notes = $db->query($query, $id)->get();
 
 
-require "views/notes/index.view.php";
+view("notes/index.view.php", [
+	"heading" => "Note Dump",
+	"notes" => $notes,
+]);
