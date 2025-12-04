@@ -12,6 +12,12 @@
 				<p>The selected <i>Note Title</i> is below:</p><hr>
 				
 				<p style="color:magenta;"><?= $note["body"]; ?></p><hr>
+				<form class="mt-6" method="POST">
+					<input type="hidden" name="id" value="<?= $note["id"] ?>"/>
+					<button style="color:goldenrod;" class="hover:underline">Delete</button>
+				</form>
+				
+				
 				<p><a href="/notes" class="text-blue-500 hover:underline">Return...</a></p>
 			</div>
 		</main>

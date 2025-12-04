@@ -4,8 +4,7 @@
 //security concern: can search resources by folder in browser.
 // die();
 
-// require "action.php";
-$routes = require "routes.php";
+$routes = require base_path("routes.php");
 
 // dumpAndDie($_SERVER);
 // $uri = $_SERVER["REQUEST_URI"];
@@ -30,7 +29,7 @@ function routeToController($uri, $routes) {
 	// 	require "controllers/contact.php";
 	// }
 	if (array_key_exists($uri, $routes)) {
-		require $routes[$uri];
+		require base_path($routes[$uri]);
 	} else {
 		abort();
 	}
@@ -39,7 +38,7 @@ function routeToController($uri, $routes) {
 function abort($code = 404) {
 	http_response_code($code);
 	// echo "Not found!";
-	require "views/{$code}.php";
+	require base_path("views/{$code}.php");
 	die();
 }
 

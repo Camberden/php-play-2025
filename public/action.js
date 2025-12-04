@@ -18,3 +18,9 @@ function runStyling() {
 window.onload = function() {
 	runStyling();
 }
+document.querySelectorAll("form").forEach(form => {
+	form.onsubmit = function() {
+		// alert("Submitted!");
+		console.log("Request Sent!");
+	}
+})
