@@ -11,4 +11,4 @@ $query = "SELECT * FROM notes WHERE id < ?";
 $notes = $db->query($query, $id)->get();
 
 
-require "views/notes.view.php";
+require "views/notes/index.view.php";

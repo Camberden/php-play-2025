@@ -3,7 +3,7 @@
 				<div class="flex h-16 items-center justify-between">
 					<div class="flex items-center">
 						<div class="shrink-0">
-							<img src="assets/CamberdenSignature-min.png" alt="Your Company" class="size-20" />
+							<img src="../assets/CamberdenSignature-min.png" alt="Your Company" class="size-20" />
 						</div>
 						<div class="hidden md:block">
 							<div class="ml-10 flex items-baseline space-x-4">
@@ -81,7 +81,7 @@
 							<img src="../../assets/chrispy-headshot-2.jpg" alt="" class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
 						</div><!-- &auto=format&fit=facearea&facepad=2&w=256&h=256&q=80-->
 						<div class="ml-3">
-							<div class="text-base/5 font-medium text-white">Tom Cook</div>
+							<div class="text-base/5 font-medium text-white">Chrispy Camberden</div>
 							<div class="text-sm font-medium text-gray-400">chrispy@moon.com</div>
 						</div>
 						<button type="button" class="relative ml-auto shrink-0 rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">

@@ -3,11 +3,10 @@
 
 <html class="h-full bg-gray-900">
 
-<?php require "partials/head.php"; ?>
+<?php require __DIR__ . "/../partials/head.php"; ?>
+<?php require __DIR__ . "/../partials/nav.php"; ?>
+<?php require __DIR__ . "/../partials/banner.php"; ?>
 
-<?php require "partials/nav.php"; ?>
-
-<?php require "partials/banner.php"; ?>
 <main>
 	<form method="POST">
 		<div class="space-y-12">
@@ -39,4 +38,4 @@
 		</div>
 	</form>
 
-	<?php require "partials/footer.php"; ?>
+<?php require __DIR__ . "/../partials/footer.php"; ?>
