@@ -1,14 +1,20 @@
 <?php
 
-// Dec 03 => Created folders for each use case within controllers and views.
+$router->get("/", "controllers/index.php");
+$router->get("/about", "controllers/about.php");
+$router->get("/contact", "controllers/contact.php");
 
-return [
-	"/" => "controllers/index.php",
-	"/about" => "controllers/about.php",
-	"/notes" => "controllers/notes/index.php", // notes/notes would be notes/index
-	"/note" => "controllers/notes/show.php", //notes/note to notes/show
-	"/notes/create" => "controllers/notes/create.php",
-	"/contact" => "controllers/contact.php",
-];
+$router->get("/notes", "controllers/notes/index.php");
+$router->post("/notes", "controllers/notes/store.php");
+
+$router->get("/note", "controllers/notes/show.php");
+$router->get("/note/edit", "controllers/notes/edit.php");
+$router->patch("/note/edit", "controllers/notes/update.php"); 
+$router->delete("/note", "controllers/notes/destroy.php"); 
+// $method = $_POST["_method"] ?? $_SERVER["REQUEST_METHOD"];
+// <input type="hidden" name="_method" value="DELETE">
+
+$router->get("/notes/create", "controllers/notes/create.php");
+$router->post("/notes/create", "controllers/notes/create.php");
 
 ?>

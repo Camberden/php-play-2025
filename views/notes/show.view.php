@@ -9,16 +9,21 @@
 
 		<main>
 			<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-				<p>The selected <i>Note Title</i> is below:</p><hr>
+				<p>The selected <i>Note</i> is below:</p><hr>
 				
-				<p style="color:magenta;"><?= $note["body"]; ?></p><hr>
+				<p class="mt-6 mb-6" style="font-family:cursive; color:magenta; font-size: 2rem;">"<?= htmlspecialchars($note["body"]); ?>" -<?= $note["user_id"] ?></p><hr>
+			
+				<p class="mt-6">
+					<a href="/note/edit?id=<?= $note["id"] ?>" style="color:gold; border:double;" class="hover:underline">Edit Note</a>
+				</p>
+
 				<form class="mt-6" method="POST">
+					<input type="hidden" name="_method" value="DELETE"> <!-- THIS VALUE SPEAKS TO THE ROUTER! -->
 					<input type="hidden" name="id" value="<?= $note["id"] ?>"/>
-					<button style="color:goldenrod;" class="hover:underline">Delete</button>
+					<button style="color:goldenrod; border:double;" class="mb-6 hover:underline">Delete</button>
 				</form>
 				
-				
-				<p><a href="/notes" class="text-blue-500 hover:underline">Return...</a></p>
+				<hr>
 			</div>
 		</main>
 

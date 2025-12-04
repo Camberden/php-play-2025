@@ -1,45 +1,57 @@
 <?php
 
-// echo("Hello there"); 
-//security concern: can search resources by folder in browser.
-// die();
+namespace Core;
 
-$routes = require base_path("routes.php");
+class Router {
 
-// dumpAndDie($_SERVER);
-// $uri = $_SERVER["REQUEST_URI"];
-$uri = parse_url($_SERVER["REQUEST_URI"])["path"];
-// dumpAndDie(parse_url($uri));
+	protected $routes = [];
 
-// $routes = [
-// 	"/" => "controllers/index.php",
-// 	"/about" => "controllers/about.php",
-// 	"/notes" => "controllers/notes.php",
-// 	"/note" => "controllers/note.php",
-// 	"/contact" => "controllers/contact.php",
-// ];
+	public function add($method, $uri, $controller) {
 
-function routeToController($uri, $routes) {
+			$this->routes[] = [
+				"method" => $method,
+				"uri" => $uri,
+				"controller" => $controller,
+		];
+	}
 
-	// if ($uri === "/") {
-	// 	require "controllers/index.php";
-	// } else if ($uri === "/about") {
-	// 	require "controllers/about.php";
-	// } else if ($uri === "/contact") {
-	// 	require "controllers/contact.php";
-	// }
-	if (array_key_exists($uri, $routes)) {
-		require base_path($routes[$uri]);
-	} else {
+	public function get($uri, $controller) {
+
+		$this->add("GET", $uri, $controller);
+
+	}
+
+	public function post($uri, $controller) {
+	
+		$this->add("POST", $uri, $controller);
+
+	}
+
+	public function delete($uri, $controller) {
+			
+		$this->add("DELETE", $uri, $controller);
+
+	}
+
+	public function patch($uri, $controller) {
+		
+		$this->add("PATCH", $uri, $controller);
+
+	}
+
+	public function put($uri, $controller) {
+		
+		$this->add("PUT", $uri, $controller);
+
+	}
+
+	public function route($uri, $method) {
+		foreach($this->routes as $route) {
+			if ($route["uri"] === $uri && $route["method"] === strtoupper($method)) {
+				return require base_path($route["controller"]);
+			}
+		}
 		abort();
 	}
-}
 
-function abort($code = 404) {
-	http_response_code($code);
-	// echo "Not found!";
-	require base_path("views/{$code}.php");
-	die();
 }
-
-routeToController($uri, $routes);

@@ -8,15 +8,17 @@ $db = App::resolve(Database::class);
 $currentUserId = 1;
 
 $note = $db->query("SELECT * FROM notes WHERE id = :id", [
-	"id" => $_GET["id"], //the binding
+	"id" => $_POST["id"],
 ])->findOrFail();
 
 authorize($note["user_id"] === $currentUserId);
 
-view("notes/show.view.php", [
-	"heading" => "One Note, not a Microsoft Reference.",
-	"note" => $note,
+$db->query("DELETE FROM notes WHERE id = :id", [
+	"id" => $_POST["id"],
 ]);
+
+header("location: /notes");
+exit();
 
 
 

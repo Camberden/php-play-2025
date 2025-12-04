@@ -1,13 +1,11 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
-$config = require base_path("config.php");
-$db = new Database($config["database"]);
+$db = App::resolve(Database::class);
 
-// $heading = "Note Dump";
 $id = [100];
-
 
 $query = "SELECT * FROM notes WHERE id < ?"; 
 $notes = $db->query($query, $id)->get();

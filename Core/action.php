@@ -15,12 +15,6 @@ function urlIs($value) {
 	return $_SERVER["REQUEST_URI"] === $value;
 }
 
-function authorize($condition, $status = Response::FORBIDDEN) {
-	if(! $condition) {
-		abort($status);
-	}
-}
-
 function base_path($path) {
 	return BASE_PATH . $path;
 }
@@ -28,4 +22,17 @@ function base_path($path) {
 function view($path, $attributes = []) {
 	extract($attributes); //extract creates variable key from string!
 	require base_path("views/" . $path);
+}
+
+function abort($code = 404) {
+		http_response_code($code);
+		// echo "Not found!";
+		require base_path("views/{$code}.php");
+		die();
+}
+
+function authorize($condition, $status = Response::FORBIDDEN) {
+	if(! $condition) {
+		abort($status);
+	}
 }

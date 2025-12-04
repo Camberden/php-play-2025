@@ -11,9 +11,9 @@
 
 	<main>
 		<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-			<h1 class="font-bold">Not Authorized to view this post!</h1>
+			<h1 class="font-bold mb-6" style="color:yellow; font-size:1rem;">Not Authorized to view this post!</h1>
 			<p class="mt-4 hover:text-white">
-				<a href="/">Go back home, silly.</a>
+				<a href="/notes">Go back to the list, silly.</a>
 			</p>
 		</div>
 	</main>
