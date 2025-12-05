@@ -6,7 +6,7 @@
  * - Date is changed for any first update completed on a new day.
  * @author Camberden (Chrispy | Kippi)
  */
-const latestUpdate = "December 4th, 2025";
+const latestUpdate = "December 5th, 2025";
 document.querySelector("#latest-update").innerHTML = latestUpdate;
 function runStyling() {
 	document.querySelectorAll("li").forEach(li => {

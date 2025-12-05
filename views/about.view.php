@@ -8,7 +8,7 @@
 
 		<main>
 			<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-				<p>Welcome to the about page, my guy.</p>
+				<p>Welcome to the about <?= $username ?> page, my guy.</p>
 			</div>
 		</main>
 		
