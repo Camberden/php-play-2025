@@ -1,9 +1,13 @@
 <?php
 
-$_SESSION["name"] = "Chrispy";
+
+// dd($_SESSION);
+// $_SESSION["name"] = "Chrispy";
+// $_SESSION["last"] = "Camberden";
 
 view("index.view.php", [
-	"heading" => "Home",
+	"heading" => "ほめぱげ",
+	"username" => $_SESSION["name"] ?? "Guest",
 ]);
 
 ?>

@@ -11,8 +11,8 @@
 			<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
 				<p>The selected <i>Note</i> is below:</p><hr>
 				
-				<p class="mt-6 mb-6" style="font-family:cursive; color:magenta; font-size: 2rem;">"<?= htmlspecialchars($note["body"]); ?>" -<?= $note["user_id"] ?></p><hr>
-			
+				<p class="mt-6 mb-6" style="font-family:cursive; color:magenta; font-size: 2rem;">"<?= htmlspecialchars($note["body"]); ?>" - <span style="font-size: 1rem;"><?= $username ?></span></p>
+				<hr>
 				<p class="mt-6">
 					<a href="/note/edit?id=<?= $note["id"] ?>" style="color:gold; border:double;" class="hover:underline">Edit Note</a>
 				</p>
@@ -24,6 +24,10 @@
 				</form>
 				
 				<hr>
+
+					<p class="mt-4 hover:text-white">
+				<a href="/notes">Return to Notes List</a>
+			</p>
 			</div>
 		</main>
 

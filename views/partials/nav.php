@@ -3,12 +3,12 @@
 				<div class="flex h-16 items-center justify-between">
 					<div class="flex items-center">
 						<div class="shrink-0">
-							<img src="/assets/CamberdenSignature-min.png" alt="Your Company" class="size-20" />
+							<img src="/assets/CamberdenSignature-min.png" alt="Camberden" class="size-20" />
 						</div>
 						<div class="hidden md:block">
 							<div class="ml-10 flex items-baseline space-x-4">
 								<!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-								<a href="/" aria-current="page" class="<?= urlIs("/") ? "bg-gray-900 text-white" : "text-gray-300"?>
+								<a href="/" aria-current="page" class="<?= urlIs("/") ? "bg-gray-900 text-white" : "text-gray-300" ?>
 								block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-white/5 hover:text-white">Home</a>
 								<a href="/about" class="<?= urlIs("/about") ? "bg-gray-900 text-white" : "text-gray-300" ?>
 								block rounded-md px-3 py-2 text-base text-gray-300 font-medium hover:bg-white/5 hover:text-white">About</a>
@@ -32,19 +32,29 @@
 
 							<!-- Profile dropdown -->
 							<el-dropdown class="relative ml-3">
-								<button class="relative flex max-w-xs items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+								<div class="relative flex max-w-xs items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
 									<span class="absolute -inset-1.5"></span>
 									<span class="sr-only">Open user menu</span>
-										<img src="/assets/chrispy-headshot-2.jpg" alt="" class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
-
-								</button>
-
-								<el-menu anchor="bottom end" popover class="w-48 origin-top-right rounded-md bg-gray-800 py-1 outline-1 -outline-offset-1 outline-white/10 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
-									<a href="#" class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:outline-hidden">Your profile</a>
-									<a href="#" class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:outline-hidden">Settings</a>
-									<a href="#" class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:outline-hidden">Sign out</a>
-								</el-menu>
+									<el-menu anchor="bottom end" popover class="w-48 origin-top-right rounded-md bg-gray-800 py-1 outline-1 -outline-offset-1 outline-white/10 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
+										<a href="#" class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:outline-hidden">Your profile</a>
+										<a href="#" class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:outline-hidden">Settings</a>
+										<a href="#" class="block px-4 py-2 text-sm text-gray-300 focus:bg-white/5 focus:outline-hidden">Sign out</a>
+									</el-menu>
+								</div>
 							</el-dropdown>
+
+							<!-- Register Link -->
+							<div class="hidden md:block">
+								<div class="ml-10 flex items-baseline space-x-4">
+									<?php if ($_SESSION["user"] ?? false): ?>
+										<img src="/assets/chrispy-headshot-2.jpg" id="user-image" alt="" class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
+									<?php else: ?>
+										<a href="/register" aria-current="page" class="<?= urlIs("/register") ? "bg-gray-900 text-white" : "text-gray-300" ?>
+										block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-white/5 hover:text-white">Register</a>
+									<?php endif ?>
+								</div>
+							</div>
+
 						</div>
 					</div>
 					<div class="-mr-2 flex md:hidden">
@@ -66,13 +76,13 @@
 			<el-disclosure id="mobile-menu" hidden class="block md:hidden">
 				<div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
 					<!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-								<a href="/" aria-current="page" class="<?= urlIs("/") ? "bg-gray-900 text-white" : "text-gray-300"?>
+					<a href="/" aria-current="page" class="<?= urlIs("/") ? "bg-gray-900 text-white" : "text-gray-300" ?>
 								block rounded-md px-3 py-2 text-base font-medium text-white">Home</a>
-								<a href="/about" class="<?= urlIs("/about") ? "bg-gray-900 text-white" : "text-gray-300" ?>
+					<a href="/about" class="<?= urlIs("/about") ? "bg-gray-900 text-white" : "text-gray-300" ?>
 								block rounded-md bg-gray-950/50 px-3 py-2 text-base text-gray-300 font-medium hover:bg-white/5 hover:text-white">About</a>
-								<a href="/notes" class="<?= urlIs("/notes") ? "bg-gray-900 text-white" : "text-gray-300" ?>
+					<a href="/notes" class="<?= urlIs("/notes") ? "bg-gray-900 text-white" : "text-gray-300" ?>
 								block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Notes</a>
-								<a href="/contact" class="<?= urlIs("/contact") ? "bg-gray-900 text-white" : "text-gray-300" ?>
+					<a href="/contact" class="<?= urlIs("/contact") ? "bg-gray-900 text-white" : "text-gray-300" ?>
 								block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact</a>
 				</div>
 				<div class="border-t border-white/10 pt-4 pb-3">

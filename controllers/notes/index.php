@@ -5,13 +5,12 @@ use Core\Database;
 
 $db = App::resolve(Database::class);
 
-$id = [100];
-
-$query = "SELECT * FROM notes WHERE id < ?"; 
-$notes = $db->query($query, $id)->get();
+$query = "SELECT * FROM notes"; 
+$notes = $db->query($query)->get();
 
 
 view("notes/index.view.php", [
 	"heading" => "Note Dump",
+	"username" => $_SESSION["name"] ?? "Guest",
 	"notes" => $notes,
 ]);

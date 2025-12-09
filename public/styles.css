@@ -2,6 +2,11 @@ p {
 	color: orangered;
 }
 
+footer {
+	font-family: 'Courier New', Courier, monospace;
+	color: chartreuse
+}
+
 code {
 	color: chartreuse;
 }
