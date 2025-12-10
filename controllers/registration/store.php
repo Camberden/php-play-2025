@@ -29,7 +29,7 @@ if (!empty($errors)) {
 }
 
 $user = $db->query("SELECT * FROM users WHERE email = :email", [
-	":email" => $email,
+	"email" => $email,
 ])->find();
 
 if ($user) {
@@ -38,18 +38,18 @@ if ($user) {
 
 } else {
 	$db->query("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)", [
-		":name" => $name,
-		":email" => $email,
-		// ":password" => password_hash($password, PASSWORD_BCRYPT),
-		":password" => $password,
+		"name" => $name,
+		"email" => $email,
+		"password" => password_hash($password, PASSWORD_BCRYPT),
+		// ":password" => $password,
 	]);
 
 	// session_start();
 
-	$_SESSION = [
-		"user" => $name,
-		"name" => $name,
-		"email" => $email,
-	];
+	// $_SESSION = [
+	// 	"user" => $name,
+	// 	"name" => $name,
+	// 	"email" => $email,
+	// ];
 	header("location: /");
 }

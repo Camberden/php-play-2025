@@ -4,13 +4,13 @@
 use Core\Response;
 
 session_start();
-$_SESSION = [
-	"user"=>"Chrispy",
-	"name"=>"Chrispy",
-	"email"=>"chrispy@moon.com",
-	"role"=>"admin",
-	"id"=>1,
-];
+// $_SESSION = [
+// 	"user"=>"Chrispy",
+// 	"name"=>"Chrispy",
+// 	"email"=>"chrispy@moon.com",
+// 	"role"=>"admin",
+// 	"id"=>1,
+// ];
 
 function dd($value) {
 	echo "<pre>";
@@ -44,4 +44,16 @@ function authorize($condition, $status = Response::FORBIDDEN) {
 	if(! $condition) {
 		abort($status);
 	}
+}
+
+function login($user) {
+
+	// session_start();
+
+	$_SESSION["user"] = [
+		"name" => $user["name"],
+		"email" => $user["email"],
+	];
+
+	dd($_SESSION);
 }

@@ -16,8 +16,16 @@
 								block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Notes</a>
 								<a href="/contact" class="<?= urlIs("/contact") ? "bg-gray-900 text-white" : "text-gray-300" ?>
 								block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact</a>
-								<a href="/purge" class="<?= urlIs("/purge") ? "bg-gray-300 text-red" : "text-red-300" ?>
+								<!-- <?php // if ($_SESSION["user"] ?? false): ?> -->
+								<a href="/purge" class="<?= urlIs("/purge") ? "bg-gray-300 text-red-500" : "text-red-300" ?>
 								block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-red">Purge</a>
+								<!-- <?php // endif ?> -->
+								<?php if ($_SESSION["user"] ?? "guest"): ?>
+								<a href="/espouse" class="<?= urlIs("/espouse") ? "bg-gray-300 text-sky-500" : "text-sky-300" ?>
+								block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-cyan-300">Espouse</a>
+								<a href="/logout" aria-current="page" class="<?= urlIs("/logout") ? "bg-gray-500 text-teal-300" : "text-teal-200" ?>
+								block rounded-md px-3 py-2 text-base font-medium text-teal-100 hover:bg-white/5 hover:text-teal-500">Logout</a>
+								<?php endif ?>
 								<span style="position:absolute;">
 								</span>
 							</div>
@@ -52,6 +60,8 @@
 									<?php if ($_SESSION["user"] ?? false): ?>
 										<img src="/assets/chrispy-headshot-2.jpg" id="user-image" alt="" class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
 									<?php else: ?>
+										<a href="/login" aria-current="page" class="<?= urlIs("/login") ? "bg-gray-900 text-white" : "text-gray-300" ?>
+										block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-white/5 hover:text-white">Login</a>
 										<a href="/register" aria-current="page" class="<?= urlIs("/register") ? "bg-gray-900 text-white" : "text-gray-300" ?>
 										block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-white/5 hover:text-white">Register</a>
 									<?php endif ?>

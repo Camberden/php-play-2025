@@ -11,6 +11,6 @@ $notes = $db->query($query)->get();
 
 view("notes/index.view.php", [
 	"heading" => "Note Dump",
-	"username" => $_SESSION["name"] ?? "Guest",
+	"username" => $_SESSION["user"]["name"] ?? "Guest",
 	"notes" => $notes,
 ]);

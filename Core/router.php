@@ -2,8 +2,8 @@
 
 namespace Core;
 
-use Core\Middleware\Auth;
-use Core\Middleware\Guest;
+// use Core\Middleware\Auth;
+// use Core\Middleware\Guest;
 use Core\Middleware\Middleware;
 
 class Router {
@@ -64,14 +64,19 @@ class Router {
 		foreach($this->routes as $route) {
 			if ($route["uri"] === $uri && $route["method"] === strtoupper($method)) {
 				// Applying middleware Dec09
-				// if statement needed to avoid error when no middleware is set
-				if($route["middleware"]) {
-					$middleware = Middleware::MIDDLEMAP[$route["middleware"]] ?? null;
-					(new $middleware)->handle();
-				}
+				Middleware::resolve($route["middleware"]);
+
 				return require base_path($route["controller"]);
 			}
 		}
-		abort();
+		$this->abort();
+	}
+
+	protected function abort($code = 404) {
+
+		http_response_code($code);
+		require base_path("views/{$code}.php");
+		die();
+
 	}
 }

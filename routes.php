@@ -21,5 +21,13 @@ $router->get("/register", "controllers/registration/create.php")->only("guest");
 $router->post("/register", "controllers/registration/store.php");
 
 $router->get("/purge", "controllers/purge.php")->only("auth");
+$router->get("/espouse", "controllers/espouse.php");
+// Todo: Add an endpoint for session reactivation;
+
+$router->get("/login", "controllers/sessions/create.php")->only("guest");
+$router->post("/login", "controllers/sessions/store.php");
+
+// $router->post("/logout", "controllers/sessions/post.php")->only("auth");
+
 
 ?>

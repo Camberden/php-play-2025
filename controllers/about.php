@@ -2,7 +2,7 @@
 
 view("about.view.php", [
 	"heading" => "About",
-	"username" => $_SESSION["name"] ?? "Guest",
+	"username" => $_SESSION["user"]["name"] ?? "Guest",
 ]);
 
 ?>

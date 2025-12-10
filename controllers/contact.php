@@ -11,7 +11,7 @@ if (isset($_SESSION)) {
 
 view("contact.view.php", [
 	"heading" => "Contact",
-	"username" => $_SESSION["name"] ?? "Guest",
+	"username" => $_SESSION["user"]["name"] ?? "Guest",
 	"processedArray" => $unserialized ?? "Placeholder Data!",
 ]);
 
