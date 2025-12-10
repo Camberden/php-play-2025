@@ -6,7 +6,7 @@
  * - Date is changed for any first update completed on a new day.
  * @author Camberden (Chrispy | Kippi)
  */
-const latestUpdate = "December 9th, 2025";
+const latestUpdate = "December 10th, 2025";
 document.querySelector("#latest-update").innerHTML = latestUpdate;
 function runStyling() {
 	document.querySelectorAll("li").forEach(li => {
@@ -84,6 +84,6 @@ const strStr = function(haystack, needle) {
 	}
 };
 
-let welcomeUsername = document.querySelector("#latest-user").innerText;
-sessionStorage.setItem("username", welcomeUsername);
-console.log("Welcome, " + sessionStorage.getItem("username") + "!");
+// let welcomeUsername = document.querySelector("#latest-user").innerText;
+// sessionStorage.setItem("username", welcomeUsername);
+// console.log("Welcome, " + sessionStorage.getItem("username") + "!");
