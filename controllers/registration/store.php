@@ -44,8 +44,12 @@ if ($user) {
 		":password" => $password,
 	]);
 
-	$_SESSION["user"] = [
+	// session_start();
+
+	$_SESSION = [
+		"user" => $name,
 		"name" => $name,
+		"email" => $email,
 	];
 	header("location: /");
 }

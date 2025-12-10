@@ -4,7 +4,7 @@ $router->get("/", "controllers/index.php");
 $router->get("/about", "controllers/about.php");
 $router->get("/contact", "controllers/contact.php");
 
-$router->get("/notes", "controllers/notes/index.php");
+$router->get("/notes", "controllers/notes/index.php")->only("auth");
 $router->post("/notes", "controllers/notes/store.php");
 
 $router->get("/note", "controllers/notes/show.php")->only("auth"); //"auth" is the array_key_last middleware
@@ -19,5 +19,7 @@ $router->post("/notes/create", "controllers/notes/create.php");
 
 $router->get("/register", "controllers/registration/create.php")->only("guest");
 $router->post("/register", "controllers/registration/store.php");
+
+$router->get("/purge", "controllers/purge.php")->only("auth");
 
 ?>

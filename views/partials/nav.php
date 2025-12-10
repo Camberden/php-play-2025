@@ -16,7 +16,10 @@
 								block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Notes</a>
 								<a href="/contact" class="<?= urlIs("/contact") ? "bg-gray-900 text-white" : "text-gray-300" ?>
 								block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact</a>
-
+								<a href="/purge" class="<?= urlIs("/purge") ? "bg-gray-300 text-red" : "text-red-300" ?>
+								block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-red">Purge</a>
+								<span style="position:absolute;">
+								</span>
 							</div>
 						</div>
 					</div>

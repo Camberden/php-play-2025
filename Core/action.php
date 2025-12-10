@@ -3,6 +3,15 @@
 // namespace Core;
 use Core\Response;
 
+session_start();
+$_SESSION = [
+	"user"=>"Chrispy",
+	"name"=>"Chrispy",
+	"email"=>"chrispy@moon.com",
+	"role"=>"admin",
+	"id"=>1,
+];
+
 function dd($value) {
 	echo "<pre>";
 	var_dump($value);

@@ -2,6 +2,10 @@
 
 namespace Core;
 
+use Core\Middleware\Auth;
+use Core\Middleware\Guest;
+use Core\Middleware\Middleware;
+
 class Router {
 
 	protected $routes = [];
@@ -53,7 +57,6 @@ class Router {
 		// dd($key);
 		// dd($this->routes);
 		return $this;
-
 	}
 
 	public function route($uri, $method) {
@@ -61,22 +64,14 @@ class Router {
 		foreach($this->routes as $route) {
 			if ($route["uri"] === $uri && $route["method"] === strtoupper($method)) {
 				// Applying middleware Dec09
-				// dd($route["middleware"]);
-				if ($route["middleware"] === "guest") {
-					if ($_SESSION["user"] ?? false) {
-						header("Location: /");
-						exit();
-					}
-				} 
-				if ($route["middleware"] === "auth") {
-					if (!$_SESSION["user"] ?? false) {
-						header("location: /");
-						exit();
-					}
-				} 
+				// if statement needed to avoid error when no middleware is set
+				if($route["middleware"]) {
+					$middleware = Middleware::MIDDLEMAP[$route["middleware"]] ?? null;
+					(new $middleware)->handle();
+				}
 				return require base_path($route["controller"]);
 			}
 		}
-	abort();
+		abort();
 	}
 }
