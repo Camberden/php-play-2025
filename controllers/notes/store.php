@@ -8,6 +8,10 @@ $db = App::resolve(Database::class);
 
 $errors = [];
 
+$currentUserId = $db->query("SELECT id FROM users WHERE name = :name", [
+	"name" => $_SESSION["user"]["name"],
+])->find()["id"]; //specifying to get the id only
+
 // if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 if (! Validator::string($_POST["body"], 1, 999)) {
@@ -23,10 +27,11 @@ if (! empty($errors)) {
 }
 
 if (empty($errors)) {
+
 	$db->query("INSERT INTO notes(body, user_id) VALUES(:body, :user_id)", [
 		// "id" => PDO->serialize,
 		"body" => $_POST["body"],
-		"user_id" => 1,
+		"user_id" => $currentUserId,
 	]);
 
 	header("location: /notes");

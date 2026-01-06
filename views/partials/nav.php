@@ -19,12 +19,14 @@
 								<!-- <?php // if ($_SESSION["user"] ?? false): ?> -->
 								<a href="/purge" class="<?= urlIs("/purge") ? "bg-gray-300 text-red-500" : "text-red-300" ?>
 								block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-red">Purge</a>
-								<!-- <?php // endif ?> -->
-								<?php if ($_SESSION["user"] ?? "guest"): ?>
 								<a href="/espouse" class="<?= urlIs("/espouse") ? "bg-gray-300 text-sky-500" : "text-sky-300" ?>
 								block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-cyan-300">Espouse</a>
-								<a href="/logout" aria-current="page" class="<?= urlIs("/logout") ? "bg-gray-500 text-teal-300" : "text-teal-200" ?>
-								block rounded-md px-3 py-2 text-base font-medium text-teal-100 hover:bg-white/5 hover:text-teal-500">Logout</a>
+								<!-- <?php // endif ?> -->
+								<?php if ($_SESSION["user"] ?? false): ?>
+									<form method="POST" action="/session">
+										<input type="hidden" name="_method" value="DELETE" />
+										<button class="text-white-300" ?>Logout</button>
+									</form>
 								<?php endif ?>
 								<span style="position:absolute;">
 								</span>

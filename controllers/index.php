@@ -5,4 +5,4 @@ view("index.view.php", [
 	"username" => $_SESSION["user"]["name"] ?? "Guest",
 ]);
 
-?>
+?>;

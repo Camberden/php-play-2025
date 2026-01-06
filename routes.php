@@ -25,9 +25,9 @@ $router->get("/espouse", "controllers/espouse.php");
 // Todo: Add an endpoint for session reactivation;
 
 $router->get("/login", "controllers/sessions/create.php")->only("guest");
-$router->post("/login", "controllers/sessions/store.php");
 
-// $router->post("/logout", "controllers/sessions/post.php")->only("auth");
+$router->post("/session", "controllers/sessions/store.php")->only("guest");
+$router->delete("/session", "controllers/sessions/destroy.php")->only("auth");
 
 
 ?>

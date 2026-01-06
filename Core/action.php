@@ -48,12 +48,21 @@ function authorize($condition, $status = Response::FORBIDDEN) {
 
 function login($user) {
 
-	// session_start();
-
 	$_SESSION["user"] = [
 		"name" => $user["name"],
 		"email" => $user["email"],
 	];
 
-	dd($_SESSION);
+	session_regenerate_id(true); //ensures a new session is made entirely.
+}
+
+function logout() {
+
+	$_SESSION = [];
+	session_destroy();
+
+	$params = session_get_cookie_params();
+	setcookie("PHPSESSID", "", time() - 3600, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
+
+	header("location: /");
 }

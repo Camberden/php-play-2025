@@ -24,7 +24,7 @@
 		<div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
 			<p class="mx-auto"><i>Go ahead</i></p>
 			<hr><br>
-			<form action="/login" method="POST" class="space-y-6">
+			<form action="/session" method="POST" class="space-y-6">
 
 				<div>
 					<label for="email" class="block text-sm/6 font-medium text-gray-100">Email address</label>

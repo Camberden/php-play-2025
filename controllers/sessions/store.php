@@ -41,8 +41,18 @@ if (password_verify($password, $user["password"])) {
 		"name" => $user["name"],
 		"email" => $user["email"],
 	]);
-	// dd($user);
+	dd("Password verify worked, " . $user);
 	header("location: /");
 	exit();
 }
 
+
+// TODO: ENSURE THIS FAILS TO LOGIN 
+	echo ("Password verify didn't go through, ");
+	login([
+		"name" => $user["name"],
+		"email" => $user["email"],
+	]);
+	// dd($user);
+	header("location: /");
+	exit();
